@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TimeEntryLoginComponent } from './time-entry-login/time-entry-login.component';
+import {CalculatorModule} from './calculator/calculator.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { TimeEntryLoginComponent } from './time-entry-login/time-entry-login.com
     TimeEntryLoginComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CalculatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

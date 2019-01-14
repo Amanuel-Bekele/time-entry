@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-time-entry-login',
@@ -7,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeEntryLoginComponent implements OnInit {
 
-  myStuff = "testing directive stuff";
+  // myStuff = '';
+  // myOtherStuff = 'other stuff';
+
+  @Input() myLeft: number;
+  @Input() myRate: number;
+
 
   constructor() { }
 
   ngOnInit() {
+    // this.myStuff = `and this is my ${this.myOtherStuff}`;
   }
 
 }
