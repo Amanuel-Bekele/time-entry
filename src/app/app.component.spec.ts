@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'TimeEntry'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('TimeEntry');
+    expect(app.title).toEqual('Time Entry');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to TimeEntry!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Time Entry!');
   });
 });
