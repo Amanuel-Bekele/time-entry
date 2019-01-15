@@ -8,6 +8,7 @@ import {ViewsModule} from './views/views.module';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './views/login/login.component';
+import {ServicesModule} from './services/services.module';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
     CalculatorModule,
     ViewsModule,
     NgbModule,
+    ServicesModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
