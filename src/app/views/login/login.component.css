@@ -1,0 +1,49 @@
+#view-card{
+  margin: 24px;
+  box-shadow: 0 10px 20px rgba(0,0, 0, .25);
+}
+
+#view-title{
+  font-size: 1.3rem;
+  color:blue;
+  text-align: center;
+  border-bottom: .5px solid gray;
+  margin: 24px 0 24px 0;
+}
+
+.form-group{
+  margin: 24px;
+}
+
+input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 300px;
+  font-size: .9rem;
+  padding: 12px 12px 12px 4px;
+  color: black;
+}
+
+label{
+  font-size: 1.1rem;
+  color: blue;
+  margin-bottom: 8px;
+}
+
+button{
+  width: 96px;
+  color: white;
+  height: 34px;
+  padding: 4px;
+  box-shadow: 0 10px 20px rgba(0,0, 0, .25);
+  border: none;
+  font-weight: 800;
+  margin:32px;
+  background-color: blue;
+}
+
+p {
+  margin: auto;
+  width: 50%;
+}

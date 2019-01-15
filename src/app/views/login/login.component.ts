@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  userObj: User = {userName: ''};
+
   constructor() { }
 
   ngOnInit() {
   }
 
+
+  onLoginSubmit(){
+    console.log("Submit", this.userObj)
+
+  }
+
+}
+
+export interface User {
+  userName: string;
+  password?: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
 }

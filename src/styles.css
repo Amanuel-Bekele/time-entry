@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  font-family: open-sans, serif;
+  font-size: 100%;
+}
+
+
+h3 {
+  font-size: 1.5rem;
+}
+
+
+@media (max-size:212px) {
+  html {
+    font-size: 80%;
+  }
+
+}

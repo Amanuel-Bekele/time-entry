@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [LoginComponent, ToolbarComponent],
+  declarations: [LoginComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    BrowserModule
   ],
   exports: [LoginComponent]
 })
