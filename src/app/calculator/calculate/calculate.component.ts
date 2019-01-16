@@ -23,18 +23,19 @@ export class CalculateComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    // this.service.getUserAuth().subscribe((u) => {
-    //   console.log('Calc Sub', u);
-    // });
+    this.sub = this.service.getUserAuth().subscribe((u) => {
+      console.log('Calc Sub', u);
+    });
 
-    this.sub = this.service.getUserAuth().pipe(
-      filter(u => u.userName !== 'foo'),
-      // first(), <-- takes the first emitted value
-      take(2), // <- takes the first two emitted value
-      map(user => {
-        console.log('Calc sub', user);
-      })
-    ).subscribe();
+    //
+    // this.sub = this.service.getUserAuth().pipe(
+    //   filter(u => u.userName != 'foo'),
+    //   // first(), <-- takes the first emitted value
+    //   take(2), // <- takes the first two emitted value
+    //   map(user => {
+    //     console.log('Calc sub', user);
+    //   })
+    // ).subscribe();
   }
 
   onAdd($result: number) {

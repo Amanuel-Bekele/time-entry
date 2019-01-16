@@ -9,6 +9,9 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './views/login/login.component';
 import {ServicesModule} from './services/services.module';
+import { TimeEntryViewComponent } from './time-entry-view/time-entry-view.component';
+import { TimeEntryItemComponent } from './time-entry-item/time-entry-item.component';
+import {EntryService} from './entry.service';
 
 
 const routes: Routes = [
@@ -19,7 +22,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    TimeEntryViewComponent,
+    TimeEntryItemComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ const routes: Routes = [
     ServicesModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [EntryService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

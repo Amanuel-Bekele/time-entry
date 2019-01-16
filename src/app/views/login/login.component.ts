@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +11,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   userObj: User;
   sub: Subscription;
+  user$: Observable<User>;
 
   constructor(private service: AuthService) {
   }
 
   ngOnInit() {
 
-    const user$ = this.service.getUserAuth();
+    this.user$ = this.service.getUserAuth();
 
-    this.sub = user$.subscribe((userData) => {
+    this.sub = this.user$.subscribe((userData) => {
       console.log('Login subscribe', userData);
       this.userObj = userData;
     });
@@ -44,4 +45,6 @@ export interface User {
   firstName?: string;
   lastName?: string;
   email?: string;
+  isSuccess: boolean;
+  isFailure: boolean;
 }
