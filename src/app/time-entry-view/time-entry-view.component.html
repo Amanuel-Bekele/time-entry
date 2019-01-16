@@ -1,3 +1,7 @@
-<p>
-  time-entry-view works!
-</p>
+<div id="time-container">
+  <div *ngFor="let timeEntry of timeEntries">
+
+    <app-time-entry-item [aSingleTimeEntry]="timeEntry"></app-time-entry-item>
+
+  </div>
+</div>

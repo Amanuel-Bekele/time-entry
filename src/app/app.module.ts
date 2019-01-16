@@ -15,7 +15,8 @@ import {EntryService} from './entry.service';
 
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'times', component: TimeEntryViewComponent}
 
 ];
 
