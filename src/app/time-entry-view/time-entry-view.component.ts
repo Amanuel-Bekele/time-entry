@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {EntryService, TimeEntry} from '../entry.service';
-import {filter, map} from 'rxjs/operators';
+import {filter, map, switchMap} from 'rxjs/operators';
 import {AuthService} from '../services/auth.service';
 
 @Component({
@@ -19,19 +19,32 @@ export class TimeEntryViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.sub = this.service.getTimeEntries().pipe(
-      map(entries => {
-        this.timeEntries = entries;
-      })
-    ).subscribe();
+    // this.sub = this.service.getTimeEntries().pipe(
+    //   map(entries => {
+    //     this.timeEntries = entries;
+    //   })
+    // ).subscribe();
+    //
+    // this.anotherSub = this.anotherService.getUserAuth().pipe(
+    //   // filter(user => user.userName && user.userName.length > 0),
+    //   map(user => {
+    //     console.log(user);
+    //     this.service.loadTimeEntries(user.userName);
+    //   })
+    // ).subscribe();
 
-    this.anotherSub = this.anotherService.getUserAuth().pipe(
-      // filter(user => user.userName && user.userName.length > 0),
-      map(user => {
-        console.log(user);
-        this.service.loadTimeEntries(user.userName);
-      })
-    ).subscribe();
+    this.sub = this.anotherService.getUserAuth().pipe(
+      filter(user => user.userName && user.userName.length > 0),
+      switchMap(
+        userVar => {
+          this.service.loadTimeEntries(userVar.userName);
+          return this.service.getTimeEntries().pipe(
+            map(entries => {
+              console.log('MAP ', entries);
+              this.timeEntries = entries;
+            })
+          );
+        })).subscribe();
 
 
   }
@@ -39,7 +52,6 @@ export class TimeEntryViewComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
 
     this.sub.unsubscribe();
-    this.anotherSub.unsubscribe();
   }
 
 }

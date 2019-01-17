@@ -25,7 +25,7 @@ export class AuthService {
       .then(
         userMessage => {
           const u = {...userMessage, isSuccess: true, isFailure: false};
-          localStorage.setItem('user-stuff', JSON.stringify(u));
+          localStorage.setItem('user-stufJSlf', JSON.stringify(u));
           this.userAuth.next(u);
         })
       .catch(() => {

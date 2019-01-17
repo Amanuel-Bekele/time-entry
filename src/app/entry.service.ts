@@ -6,7 +6,7 @@ import {environment} from '../environments/environment';
 @Injectable()
 export class EntryService {
 
-  readonly api = environment.loginUri;
+  readonly api = environment.timeEntryUri;
   private timeEntries: BehaviorSubject<TimeEntry[]>;
   private readonly timeEntries$: Observable<TimeEntry[]>;
 
@@ -16,8 +16,11 @@ export class EntryService {
   }
 
   loadTimeEntries(userName: string): void {
+    console.log(`****EYE-CATCHER*** -> ${this.api}getTimeEntry?userName=${userName}`);
+
     this.http.get<TimeEntry[]>(
-      `${this.api}/getTimeEntry?userName=${userName}`
+
+      `${this.api}getTimeEntry?userName=${userName}`
     ).toPromise()
       .then((listOfTimeEntries) => {
         this.timeEntries.next(listOfTimeEntries);

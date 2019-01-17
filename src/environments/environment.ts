@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   loginUri: 'https://us-central1-pka-forms-fef14.cloudfunctions.net/login',
-  timeEntryUri: 'https://us-central1-pka-forms-fef14.cloudfunctions.net'
+  timeEntryUri: 'https://us-central1-pka-forms-fef14.cloudfunctions.net/'
 };
 
 /*
